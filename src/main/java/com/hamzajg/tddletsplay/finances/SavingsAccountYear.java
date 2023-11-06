@@ -13,11 +13,11 @@ public class SavingsAccountYear {
         this.interestRate = interestRate;
     }
 
-    public void deposit(double amount) {
+    public void deposit(final double amount) {
         startingBalance += amount;
     }
 
-    public void withdraw(double amount) {
+    public void withdraw(final double amount) {
         startingBalance -= amount;
     }
 
