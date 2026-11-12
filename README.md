@@ -5,8 +5,8 @@ Three small test-driven katas in Java, each grown from its test suite:
 | Kata | Source | Tests | What it covers |
 |---|---|---|---|
 | Savings account | [`finances/SavingsAccountYear`](src/main/java/com/hamzajg/tddletsplay/finances/SavingsAccountYear.java) | [`SavingsAccountYearTest`](src/test/java/com/hamzajg/tddletsplay/finances/SavingsAccountYearTest.java) | Compound interest across years: ending balance, next year's starting balance, a stable interest rate |
-| Bowling | [`games/bowling/Game`](src/main/java/com/hamzajg/tddletsplay/games/bowling/Game.java) | [`BowlingGameTest`](src/test/java/com/hamzajg/tddletsplay/games/bowling/BowlingGameTest.java) | The classic bowling scorer: gutter game, all ones, one spare, one strike, a perfect 300 |
-| Tic-tac-toe | [`games/tictactoe/Game`](src/main/java/com/hamzajg/tddletsplay/games/tictactoe/Game.java) | [`TicTacToeGameTest`](src/test/java/com/hamzajg/tddletsplay/games/tictactoe/TicTacToeGameTest.java) | Turn taking, move application, and detecting a winning row |
+| Bowling | [`games/bowling/Game`](src/main/java/com/hamzajg/tddletsplay/games/bowling/Game.java) | [`BowlingGameTest`](src/test/java/com/hamzajg/tddletsplay/games/bowling/BowlingGameTest.java) | The classic bowling scorer: gutter game, all ones, one spare, one strike, a perfect 300, and rejecting a roll outside 0–10 or a 22nd roll |
+| Tic-tac-toe | [`games/tictactoe/Game`](src/main/java/com/hamzajg/tddletsplay/games/tictactoe/Game.java) | [`TicTacToeGameTest`](src/test/java/com/hamzajg/tddletsplay/games/tictactoe/TicTacToeGameTest.java) | Turn taking, move application, detecting a winning row, finishing on a full board as a draw, and rejecting a move outside the board |
 
 The point of the repository is the tests: every rule is pinned by an example,
 and the production classes contain only what those examples required.

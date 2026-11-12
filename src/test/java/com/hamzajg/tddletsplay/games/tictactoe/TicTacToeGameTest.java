@@ -35,6 +35,48 @@ public class TicTacToeGameTest {
     }
 
     @Test
+    public void drawFinishesTheGameWithoutAWinner() {
+        var game = new Game();
+
+        // X O X
+        // X O O
+        // O X X
+        game.makeMove(0, 0);
+        game.makeMove(0, 1);
+        game.makeMove(0, 2);
+        game.makeMove(1, 1);
+        game.makeMove(1, 0);
+        game.makeMove(2, 0);
+        game.makeMove(2, 1);
+        game.makeMove(1, 2);
+        game.makeMove(2, 2);
+
+        Assertions.assertTrue(game.isFinished);
+        Assertions.assertEquals(Character.MIN_VALUE, game.winner);
+    }
+
+    @Test
+    public void rejectsAMoveOutsideTheBoard() {
+        var game = new Game();
+
+        Assertions.assertThrows(IllegalArgumentException.class, () -> game.makeMove(3, 0));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> game.makeMove(0, -1));
+        Assertions.assertFalse(game.isFinished);
+    }
+
+    @Test
+    public void aMoveOnAnOccupiedCellIsIgnored() {
+        var game = new Game();
+
+        game.makeMove(0, 0);
+        game.makeMove(0, 0);
+
+        // The turn did not pass, so the second move never happened.
+        Assertions.assertEquals('O', game.currentPlayer);
+        Assertions.assertFalse(game.isFinished);
+    }
+
+    @Test
     public void playerXWins() {
         var game = new Game();
 

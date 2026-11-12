@@ -53,6 +53,23 @@ public class BowlingGameTest {
         Assertions.assertEquals(300, game.score());
     }
 
+    @Test
+    public void rejectsANegativeRoll() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> game.roll(-1));
+    }
+
+    @Test
+    public void rejectsARollOfMoreThanTenPins() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> game.roll(11));
+    }
+
+    @Test
+    public void rejectsMoreThanTwentyOneRolls() {
+        rollMany(21, 1);
+
+        Assertions.assertThrows(IllegalStateException.class, () -> game.roll(1));
+    }
+
     private void rollStrike() {
         game.roll(10);
     }

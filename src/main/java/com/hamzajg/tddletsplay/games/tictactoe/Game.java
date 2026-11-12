@@ -8,10 +8,15 @@ public class Game {
     public char currentPlayer = 'X';
 
     private final String[][] board = {{"", "", ""},  {"", "", ""}, {"", "", ""}};
+    private int moves;
 
     public void makeMove(final int row, final int col) {
+        if (row < 0 || row >= board.length || col < 0 || col >= board[row].length)
+            throw new IllegalArgumentException("move (" + row + ", " + col + ") is outside the board");
+
         if(!isFinished && board[row][col].isEmpty()) {
             board[row][col] = String.valueOf(currentPlayer);
+            moves++;
             currentPlayer = currentPlayer == 'X' ? 'O' : 'X';
             checkForWinner();
         }
@@ -34,6 +39,10 @@ public class Game {
                 isFinished = true;
             }
         });
+
+        // A full board with no winning line is a draw: nobody won, but the game is over.
+        if(!isFinished && moves == 9)
+            isFinished = true;
     }
 
     private boolean isPlayedMovesMatchWinningPosition(int[] positions) {
