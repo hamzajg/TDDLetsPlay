@@ -1,10 +1,17 @@
 package com.hamzajg.tddletsplay.games.bowling;
 
 public class Game {
-    private final int[] rolls = new int[21];
+    private static final int MAX_ROLLS = 21;
+
+    private final int[] rolls = new int[MAX_ROLLS];
     private int currentRole;
 
     public void roll(int pins) {
+        if (pins < 0 || pins > 10)
+            throw new IllegalArgumentException("a roll must be between 0 and 10 pins: " + pins);
+        if (currentRole == MAX_ROLLS)
+            throw new IllegalStateException("a game has at most " + MAX_ROLLS + " rolls");
+
         rolls[currentRole++] = pins;
     }
 
