@@ -26,15 +26,10 @@ The HTML report is written to `build/reports/tests/test/index.html`.
 
 ## Run the savings demo
 
-`Bootstrap` compounds an account for 60 years at 10% and prints the balance
-each year:
-
-```bash
-sh gradlew run --args=""
-```
-
-`Bootstrap` has no `application` plugin entry, so run it with `java` instead if
-`gradlew run` is not configured:
+`Bootstrap` deposits $10,000 and prints the starting balance for each of the
+next 60 years. It uses the no-argument constructor, so the interest rate is 0
+and the balance stays at $10,000; construct `SavingsAccountYear(10_000, 10)`
+instead to see it compound:
 
 ```bash
 sh gradlew classes
