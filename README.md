@@ -13,8 +13,8 @@ and the production classes contain only what those examples required.
 
 ## Requirements
 
-- JDK 17 (the code uses `var`)
-- No Gradle install needed — the wrapper is checked in (Gradle 8.2)
+- JDK 25 (the code uses `var`)
+- No Gradle install needed — the wrapper is checked in (Gradle 9.9.1)
 
 ## Run the tests
 
@@ -49,7 +49,7 @@ src/test/java/...    one test class per kata
 ## Continuous integration
 
 [`.github/workflows/ci.yml`](.github/workflows/ci.yml) runs `gradlew test` on
-JDK 17 for every push and pull request to `master`.
+JDK 25 for every push and pull request to `master`.
 
 ## License
 

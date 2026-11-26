@@ -15,12 +15,12 @@ Verified 2026-11-13 against CI (`.github/workflows/ci.yml`) and README.
 
 | Task | Command |
 |---|---|
-| Test | `sh gradlew test --no-daemon` (CI: JDK 17) |
+| Test | `sh gradlew test --no-daemon` (CI: JDK 25) |
 | Compile classes | `sh gradlew classes` |
 | Savings demo | `java -cp build/classes/java/main com.hamzajg.tddletsplay.finances.Bootstrap` |
 | Test report | `build/reports/tests/test/index.html` |
 
-Requires: JDK to run Gradle (CI uses 17). **Compilation toolchain is
+Requires: JDK 25 to run Gradle and to compile. **Compilation toolchain is
 JDK 25** (`build.gradle` → `java.toolchain.languageVersion = 25`) — Gradle
 resolves/downloads it; local runs may auto-provision.
 
@@ -57,9 +57,8 @@ The three katas:
 ## Landmines
 
 - **Default branch is `master`, not `main`.**
-- Toolchain mismatch is deliberate: Gradle runs on JDK 17 (CI) but compiles
-  with a JDK 25 toolchain — don't "fix" either number without understanding
-  the auto-provisioning.
+- The wrapper is 9.9.1 because older Gradle releases cannot run on JDK 25.
+  Compilation uses the same JDK 25 toolchain.
 - `Bootstrap` uses the no-arg ctor → interest rate 0 → flat $10,000; use
   `new SavingsAccountYear(10_000, 10)` to see compounding.
 - Wrapper is checked in (`gradlew`) — use `sh gradlew`, not a system
