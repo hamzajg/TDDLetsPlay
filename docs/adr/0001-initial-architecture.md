@@ -23,8 +23,8 @@ where the test suite defines the required behaviour.
    tests use whichever fits. Rationale: pragmatic — matches however each
    kata's tests were written.
 5. **Gradle wrapper checked in; toolchain JDK 25.** `gradlew` is the only
-   supported entry; compilation targets Java 25 via toolchain while CI's
-   launcher JDK is 17. Rationale: reproducible builds + modern bytecode
+   supported entry; Gradle and the compile toolchain both run on Java 25.
+   Rationale: reproducible builds + modern bytecode
    without requiring contributors to install JDK 25 manually (toolchain
    auto-resolution).
 6. **Bootstrap demo included.** `finances/Bootstrap` runs a 60-year
@@ -34,6 +34,6 @@ where the test suite defines the required behaviour.
 
 - Adding features means writing the failing test first — enforced by
   convention.
-- The JDK17-launcher/JDK25-compile split can confuse newcomers; it's
-  documented here and in AGENTS.md.
+- Gradle 9.9.1 is required to run on JDK 25; it's documented here and in
+  AGENTS.md.
 - No build.gradle plugins beyond `java` — deliberately minimal.

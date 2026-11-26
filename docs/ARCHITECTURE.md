@@ -30,12 +30,12 @@ TDDLetsPlay/  (Gradle, single module)
   the tests required — no speculative API. The tests ARE the spec.
 - **No dependencies in main.** Only JDK + `var`; all deps are test-scoped
   (JUnit 4.13.1 + Jupiter 5.8.1).
-- **Toolchain split.** Gradle itself runs on the CI's JDK 17;
+- **JDK 25 throughout.** Gradle itself runs on the CI's JDK 25 and
   `java.toolchain.languageVersion = 25` makes compilation target a JDK 25
   (auto-resolved). Deliberate result of the fleet SDK sweep.
 
 ## Verification
 
-CI: `sh gradlew test --no-daemon` on JDK 17 → HTML report at
+CI: `sh gradlew test --no-daemon` on JDK 25 → HTML report at
 `build/reports/tests/test/index.html`. Local demo:
 `java -cp build/classes/java/main com.hamzajg.tddletsplay.finances.Bootstrap`.
